@@ -6,13 +6,13 @@ import connectDB from "./configs/mongodb.js";
 // APP Config
 const PORT = process.env.PORT || 4000;
 const app = express();
-await connectDB()
+await connectDB();
 
-//Intialize middlewares
+// Initialize middlewares
 app.use(express.json());
 app.use(cors());
 
 // API routes
-app.get("/", (res, req) => res.send("API Working"));
+app.get("/", (req, res) => res.send("API Working")); // Corrected order of parameters
 
-app.listen(PORT, () => console.log("Server Running on port " +  PORT));
+app.listen(PORT, () => console.log("Server Running on port " + PORT));
